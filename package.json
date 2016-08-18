@@ -1,0 +1,23 @@
+{
+  "name": "asw_basepkg",
+  "version": "1.0.0",
+  "description": "A simple package for test purposes",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelgr/basepkg.git"
+  },
+  "author": "'Rafael <'rafa@myariadna.com'>",
+  "license": "CC-BY-NC-4.0",
+  "bugs": {
+    "url": "https://github.com/rafaelgr/basepkg/issues"
+  },
+  "homepage": "https://github.com/rafaelgr/basepkg#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
+  }
+}
