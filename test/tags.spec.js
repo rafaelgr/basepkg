@@ -31,23 +31,5 @@ describe("Tags", function () {
 
         expect(results).to.have.a.property("searchContents", true);
     });
-
-    it("should accept short formed tags", function () {
-        var args = ["-sd=4", "-h"];
-        var replacements = {
-            s: "searchContents",
-            d: "depth",
-            h: "hello"
-        };
-
-        var results = tags.parse(args, {}, replacements);
-
-        var expected = {
-            searchContents: true,
-            depth: 4,
-            hello: true
-        };
-
-        expect(results).to.deep.equal(expected);
-    });
+    
 });
