@@ -26,6 +26,15 @@ describe('Search', function () {
                 done();
             });
         });
+        it("sholud stop at a specific depth", function (done) {
+            search.scan(".test_files", 1, function (err, flist) {
+                expect(flist).to.deep.equal([
+                    ".test_files/a",
+                    ".test_files/b",
+                ]);
+                done();
+            })
+        });
         after(function () {
             fs.unlinkSync(".test_files/dir/c");
             fs.rmdirSync(".test_files/dir");
@@ -35,5 +44,16 @@ describe('Search', function () {
             fs.unlinkSync(".test_files/b");
             fs.rmdirSync(".test_files");
         });
+    });
+});
+
+describe("#match()", function(){
+    it("should find and return matches based on a query", function(){
+        var files = ["hello.txt", "world.js", "another.js"];
+        var results = search.match(".js", files);
+        expect(results).to.deep.equal(["world.js", "another.js"]);
+ 
+        results = search.match("hello", files);
+        expect(results).to.deep.equal(["hello.txt"]);
     });
 });
