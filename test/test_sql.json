@@ -1,0 +1,4 @@
+{
+    "createTestUserGroup": "INSERT INTO user_group (`userGroupId`, `name`) VALUES ('2', 'TestGroup');",
+    "deleteTestUserGroup": ""
+}

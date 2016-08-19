@@ -1,0 +1,16 @@
+{
+    "prod": {
+        "host": "localhost",
+        "user": "root",
+        "password": "aritel",
+        "database": "baseapi",
+        "port": 3306
+    },
+    "test": {
+        "host": "localhost",
+        "user": "root",
+        "password": "aritel",
+        "database": "baseapi",
+        "port": 3306
+    }
+}
