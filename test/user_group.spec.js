@@ -26,4 +26,15 @@ describe("UserGroup", function () {
             done();
         }, true);
     });
+    it("should create a new user group correctly", function (done) {
+        var ug = tObjects.tUserGroup;
+        ug.id = 0;
+        userGroup.post(ug, function (err, res) {
+            expect(err).to.be.null;
+            expect(res).to.have.length(1);
+            var g = res[0];
+            expect(g).to.have.a.property("id");
+            expect(g).to.have.a.property("name", ug.name);
+        }, true);
+    });
 });
