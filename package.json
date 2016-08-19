@@ -21,6 +21,7 @@
     "mocha": "^3.0.2"
   },
   "dependencies": {
-    "mysql": "^2.11.1"
+    "mysql": "^2.11.1",
+    "sprintf-js": "^1.0.3"
   }
 }

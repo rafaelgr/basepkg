@@ -1,3 +1,6 @@
 {
-    
+    "tUserGroup":{
+        "id": 2,
+        "name": "TestGroup"
+    }
 }

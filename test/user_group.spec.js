@@ -1,4 +1,6 @@
 var expect = require('chai').expect,
+    dbCon = require('../lib/db_connection'),
+    tObjects = require('./test_objects.json'),
     userGroup = require('../lib/user_group');
 
 describe("UserGroup", function () {
@@ -12,7 +14,16 @@ describe("UserGroup", function () {
             done();
         });
     });
-    it ("should return a user group previously created", function(done){
-        
+    it("should return a user group previously created", function (done) {
+        before(dbCon.execSql('create_one_user_group.sql', function (err) {
+            expect(err).to.be.null;
+        }, true));
+        userGroup.getById(2, function (err, res) {
+            expect(err).to.be.null;
+            expect(res).to.have.length(1);
+            var g = res[0];
+            expect(g).to.deep.equal(tObjects.tUserGroup);
+            done();
+        }, true);
     });
 });
