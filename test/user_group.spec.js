@@ -1,6 +1,5 @@
 var expect = require('chai').expect,
     dbCon = require('../lib/db_connection'),
-    tObjects = require('./test_objects.json'),
     userGroup = require('../lib/user_group');
 
 describe("UserGroup", function () {
