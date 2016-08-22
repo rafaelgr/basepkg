@@ -15,7 +15,7 @@ describe("UserGroup", function () {
         });
     });
     it("should return a user group previously created", function (done) {
-        before(dbCon.execSql('create_one_user_group.sql', function (err) {
+        before("Create one user group", dbCon.execSql('create_one_user_group.sql', function (err) {
             expect(err).to.be.null;
         }, true));
         userGroup.getById(2, function (err, res) {
@@ -31,10 +31,10 @@ describe("UserGroup", function () {
         ug.id = 0;
         userGroup.post(ug, function (err, res) {
             expect(err).to.be.null;
-            expect(res).to.have.length(1);
-            var g = res[0];
+            var g = res;
             expect(g).to.have.a.property("id");
             expect(g).to.have.a.property("name", ug.name);
+            done();
         }, true);
     });
 });
