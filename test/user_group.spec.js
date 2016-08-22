@@ -4,37 +4,65 @@ var expect = require('chai').expect,
     userGroup = require('../lib/user_group');
 
 describe("UserGroup", function () {
-    it("should return the Admin default group", function (done) {
-        userGroup.getById(1, function (err, res) {
+    var tId = 0;
+    before(function () {
+        dbCon.execSql('delete_test_user_group.sql', function (err) {
             expect(err).to.be.null;
-            // the only thing we can test is group id 1 existence
-            expect(res).to.have.length(1);
-            var g = res[0];
-            expect(g).to.have.property("id", 1);
-            done();
-        });
-    });
-    it("should return a user group previously created", function (done) {
-        before("Create one user group", dbCon.execSql('create_one_user_group.sql', function (err) {
+        }, true);
+    })
+    it("should create a new user group", function (done) {
+        userGroup.post({
+            id: 0,
+            name: "TestUserGroup"
+        }, function (err, res) {
             expect(err).to.be.null;
-        }, true));
-        userGroup.getById(2, function (err, res) {
-            expect(err).to.be.null;
-            expect(res).to.have.length(1);
-            var g = res[0];
-            expect(g).to.deep.equal(tObjects.tUserGroup);
+            // returned object has new id
+            expect(res).to.have.a.property("id");
+            tId = res.id;
             done();
         }, true);
     });
-    it("should create a new user group correctly", function (done) {
-        var ug = tObjects.tUserGroup;
-        ug.id = 0;
-        userGroup.post(ug, function (err, res) {
+    it("should return the new user group created", function (done) {
+        userGroup.getById(tId, function (err, res) {
             expect(err).to.be.null;
-            var g = res;
-            expect(g).to.have.a.property("id");
-            expect(g).to.have.a.property("name", ug.name);
+            // have the same name
+            expect(res).to.have.length(1);
+            var t = res[0];
+            var expected = {
+                id: tId,
+                name: "TestUserGroup"
+            }
+            expect(t).to.deep.equal(expected);
             done();
         }, true);
     });
+    it("should modifiy the user group", function (done) {
+        userGroup.put({
+            id: tId,
+            name: "TestUserGroupChanged"
+        }, function (err, res) {
+            expect(err).to.be.null;
+            expect(res).to.have.a.property("name", "TestUserGroupChanged");
+            done();
+        }, true);
+    });
+    it("should delete the user group", function (done) {
+        userGroup.delete({
+            id: tId
+        }, function (err, res) {
+            expect(err).to.be.null;
+            // check that record no loger exists
+            userGroup.getById(tId, function (err, res) {
+                expect(err).to.be.null;
+                expect(res).to.have.length(0);
+                done();
+            }, true)
+        }, true);
+    });
+    // after all delete test records
+    after(function () {
+        dbCon.execSql('delete_test_user_group.sql', function (err) {
+            expect(err).to.be.null;
+        }, true);
+    })
 });
