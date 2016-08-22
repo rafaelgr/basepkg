@@ -6,8 +6,15 @@ describe("User", function () {
     var uId = 0;
     before(function (done) {
         // create the user group used for the test
-        dbCon.execSql('create_test_user_group.sql', function (err) {
+        dbCon.execSql('prepare_user_test.sql', function (err) {
             expect(err).to.be.null;
+            done();
+        }, true);
+    });
+    it("should return some users", function(done){
+        user.get(function(err, res){
+            expect(err).to.be.null;
+            expect(res).to.have.length;
             done();
         }, true);
     });
@@ -88,9 +95,10 @@ describe("User", function () {
         }, true);
     });
     // after all delete test records
-    after(function () {
+    after(function (done) {
         dbCon.execSql('delete_test.sql', function (err) {
             expect(err).to.be.null;
+            done();
         }, true);
     })
 });

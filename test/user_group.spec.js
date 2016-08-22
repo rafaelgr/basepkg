@@ -4,11 +4,19 @@ var expect = require('chai').expect,
 
 describe("UserGroup", function () {
     var tId = 0;
-    before(function () {
-        dbCon.execSql('delete_test.sql', function (err) {
+    before(function (done) {
+        dbCon.execSql('prepare_user_group_test.sql', function (err) {
             expect(err).to.be.null;
+            done();
         }, true);
-    })
+    });
+    it("should return some user groups", function(done){
+        userGroup.get(function(err, res){
+            expect(err).to.be.null;
+            expect(res).to.have.length;
+            done();
+        }, true);
+    });
     it("should create a new user group", function (done) {
         userGroup.post({
             id: 0,
@@ -59,9 +67,10 @@ describe("UserGroup", function () {
         }, true);
     });
     // after all delete test records
-    after(function () {
+    after(function (done) {
         dbCon.execSql('delete_test.sql', function (err) {
             expect(err).to.be.null;
+            done();
         }, true);
     })
 });
