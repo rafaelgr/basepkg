@@ -87,4 +87,10 @@ describe("User", function () {
             done();
         }, true);
     });
+    // after all delete test records
+    after(function () {
+        dbCon.execSql('delete_test.sql', function (err) {
+            expect(err).to.be.null;
+        }, true);
+    })
 });
