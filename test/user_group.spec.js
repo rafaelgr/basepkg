@@ -5,7 +5,7 @@ var expect = require('chai').expect,
 describe("UserGroup", function () {
     var tId = 0;
     before(function () {
-        dbCon.execSql('delete_test_user_group.sql', function (err) {
+        dbCon.execSql('delete_test.sql', function (err) {
             expect(err).to.be.null;
         }, true);
     })
@@ -60,7 +60,7 @@ describe("UserGroup", function () {
     });
     // after all delete test records
     after(function () {
-        dbCon.execSql('delete_test_user_group.sql', function (err) {
+        dbCon.execSql('delete_test.sql', function (err) {
             expect(err).to.be.null;
         }, true);
     })
