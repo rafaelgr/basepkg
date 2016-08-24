@@ -4,4 +4,5 @@
 [![npm](https://img.shields.io/npm/v/asw_basepkg.svg?maxAge=2592000)](https://www.npmjs.com/package/asw_basepkg)
 [![npm](https://img.shields.io/npm/l/asw_basepkg.svg?maxAge=2592000)](https://creativecommons.org/licenses/by-nc/4.0/legalcode)
 [![npm](https://img.shields.io/npm/dm/asw_basepkg.svg?maxAge=2592000)](https://www.npmjs.com/package/asw_basepkg)
+[![npm](https://img.shields.io/npm/dt/asw_basepkg.svg?maxAge=2592000)](https://www.npmjs.com/package/asw_basepkg)
 
