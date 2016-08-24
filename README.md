@@ -6,6 +6,6 @@
 [![npm](https://img.shields.io/npm/dm/asw_basepkg.svg?maxAge=2592000)](https://www.npmjs.com/package/asw_basepkg)
 [![npm](https://img.shields.io/npm/dt/asw_basepkg.svg?maxAge=2592000)](https://www.npmjs.com/package/asw_basepkg)
 [![Dependency Status](https://david-dm.org/rafaelgr/basepkg.svg)](https://david-dm.org/rafaelgr/basepkg)
-[![devDependency Status](https://david-dm.org/rafaelgr/basepkg/dev-status.svg)](https://david-dm.org/isaacs/basepkg#info=devDependencies)
+[![devDependency Status](https://david-dm.org/rafaelgr/basepkg/dev-status.svg)](https://david-dm.org/rafaelgr/basepkg#info=devDependencies)
 
 
