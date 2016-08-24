@@ -1,14 +1,15 @@
 {
   "name": "asw_basepkg",
-  "version": "1.0.0",
   "description": "A simple package for test purposes",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec"
+    "commit": "git cz",
+    "test": "./node_modules/.bin/mocha --reporter spec",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafaelgr/basepkg.git"
+    "url": "https://github.com/rafaelgr/basepkg.git"
   },
   "author": "'Rafael <'rafa@myariadna.com'>",
   "license": "CC-BY-NC-4.0",
@@ -18,10 +19,18 @@
   "homepage": "https://github.com/rafaelgr/basepkg#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.0.2"
+    "commitizen": "^2.8.6",
+    "cz-conventional-changelog": "^1.2.0",
+    "mocha": "^3.0.2",
+    "semantic-release": "^4.3.5"
   },
   "dependencies": {
     "mysql": "^2.11.1",
     "sprintf-js": "^1.0.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

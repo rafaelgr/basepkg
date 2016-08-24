@@ -8,9 +8,9 @@
     },
     "test": {
         "host": "localhost",
-        "user": "root",
-        "password": "aritel",
-        "database": "baseapi",
+        "user": "travis",
+        "password": "",
+        "database": "baseapi_test",
         "port": 3306
     }
 }
