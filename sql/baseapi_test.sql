@@ -27,7 +27,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`userId`),
   KEY `rf_user_userGroup` (`userGroupId`),
   CONSTRAINT `rf_user_userGroup` FOREIGN KEY (`userGroupId`) REFERENCES `user_group` (`userGroupId`)
-) ENGINE=INNODB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user` */
 
@@ -39,7 +39,7 @@ CREATE TABLE `user_group` (
   `userGroupId` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) DEFAULT NULL,
   PRIMARY KEY (`userGroupId`)
-) ENGINE=INNODB AUTO_INCREMENT=151 DEFAULT CHARSET=utf8;
+) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user_group` */
 
