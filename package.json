@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "commit": "git cz",
-    "cover": "istanbul cover ./lib/*.js",
+    "cover": "istanbul cover index.js",
     "test": "./node_modules/.bin/mocha --reporter spec",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
