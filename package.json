@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "commit": "git cz",
-    "cover": "istanbul cover index.js",
-    "test": "./node_modules/.bin/mocha --reporter spec",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {

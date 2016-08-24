@@ -1,7 +1,7 @@
 var expect = require('chai').expect,
     dbCon = require('../lib/db_connection'),
     user = require('../lib/user');
-
+    
 describe("User", function () {
     var uId = 0;
     before(function (done) {
@@ -11,8 +11,8 @@ describe("User", function () {
             done();
         }, true);
     });
-    it("should return some users", function(done){
-        user.get(function(err, res){
+    it("should return some users", function (done) {
+        user.get(function (err, res) {
             expect(err).to.be.null;
             expect(res).to.have.length;
             done();
