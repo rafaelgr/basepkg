@@ -1,4 +1,10 @@
 sudo: false
+notifications:
+  email:
+    recipients:
+      - rafa@myariadna.com
+    on_success: [always|never|change] # default: change
+    on_failure: [always|never|change] # default: always
 language: node_js
 cache:
   directories:
