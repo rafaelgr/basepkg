@@ -1,7 +1,7 @@
 var expect = require('chai').expect,
     dbCon = require('../lib/db_connection'),
     user = require('../lib/user');
-    
+
 describe("User", function () {
     var uId = 0;
     before(function (done) {
@@ -68,7 +68,17 @@ describe("User", function () {
             }
         }, function (err, res) {
             expect(err).to.be.null;
-            expect(res).to.have.a.property("name", "TestUserChanged");
+            var expected = {
+                id: uId,
+                name: "TestUserChanged",
+                login: "login",
+                password: "password",
+                userGroup: {
+                    id: 2,
+                    name: "TestUserGroup"
+                }
+            };
+            expect(res).to.deep.equal(expected);
             done();
         }, true);
     });

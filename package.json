@@ -3,7 +3,7 @@
   "description": "A simple package for test purposes",
   "main": "index.js",
   "scripts": {
-    "commit": "git add -A && git cz",
+    "commit": "git add -A && git cz && git push",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "check-coverage": "istanbul check-coverage --statements 50 --branches 50 --functions 50 --lines 50",
     "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
